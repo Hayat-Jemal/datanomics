@@ -46,5 +46,81 @@
     ----
     OrderStatusID PK int
     Name UNIQUE string -->
+
+    <!-- *****************************************************
+    dvd_rental database
+    CREATE TABLE actor (    
+     actor_id integer PRIMARY KEY, 
+     first_name character varying(45) NOT NULL,  
+     last_name character varying(45) NOT NULL,    
+     last_update timestamp without DEFAULT now() NOT NULL);
+
+CREATE TABLE film (
+    film_id integer PRIMARY KEY,
+    title character varying(255) NOT NULL,
+    description text,
+    release_year year,
+    language_id smallint NOT NULL,
+    original_language_id smallint,
+    rental_duration smallint DEFAULT 3 NOT NULL,
+    rental_rate numeric(4,2) DEFAULT 4.99 NOT NULL,
+    length smallint,
+    replacement_cost numeric(5,2) DEFAULT 19.99 NOT NULL,
+    rating mpaa_rating DEFAULT 'G',
+    last_update timestamp  DEFAULT now() NOT NULL,
+    special_features ,
+    fulltext tsvector NOT NULL
+);
+
+CREATE TABLE film_actor (
+    actor_id smallint NOT NULL,
+    film_id smallint NOT NULL,
+    last_update timestamp DEFAULT now() NOT NULL
+);
+
+CREATE TABLE film_category (
+    film_id smallint NOT NULL,
+    category_id smallint NOT NULL,
+    last_update timestamp DEFAULT now() NOT NULL
+);
+
+CREATE TABLE address (
+    address_id integer PRIMARY KEY,
+    address character varying(50) NOT NULL,
+    address2 character varying(50),
+    district character varying(20) NOT NULL,
+    city_id smallint NOT NULL,
+    postal_code character varying(10),
+    phone character varying(20) NOT NULL,
+    last_update timestamp DEFAULT now() NOT NULL
+);
+
+CREATE TABLE city (
+    city_id integer PRIMARY KEY,
+    city character varying(50) NOT NULL,
+    country_id smallint NOT NULL,
+    last_update timestamp without time zone DEFAULT now() NOT NULL
+);
+
+CREATE TABLE country (
+    country_id integer PRIMARY KEY,
+    country character varying(50) NOT NULL,
+    last_update timestamp DEFAULT now() NOT NULL
+);
+
+
+CREATE TABLE customer (
+    customer_id integer PRIMARY KEY,
+    store_id smallint NOT NULL,
+    first_name character varying(45) NOT NULL,
+    last_name character varying(45) NOT NULL,
+    email character varying(50),
+    address_id smallint NOT NULL,
+    activebool boolean DEFAULT true NOT NULL,
+    create_date date DEFAULT now() NOT NULL,
+    last_update timestamp without time zone DEFAULT now(),
+    active integer
+); -->
+
 </body>
 </html>
