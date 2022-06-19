@@ -49,6 +49,11 @@
 
     <!-- *****************************************************
     dvd_rental database
+
+    CREATE TABLE category (    
+     category_id integer PRIMARY KEY, 
+     name varchar(50) NOT NULL,  
+     last_update timestamp  DEFAULT now() NOT NULL);
     CREATE TABLE actor (    
      actor_id integer PRIMARY KEY, 
      first_name character varying(45) NOT NULL,  
