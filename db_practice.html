@@ -1,60 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <!-- # Modify this code to update the DB schema diagram.
-    # To reset the sample schema, replace everything with
-    # two dots ('..' - without quotes).
-    
-    Customer
-    -
-    CustomerID PK int
-    Name string INDEX
-    Address1 string
-    Address2 NULL string
-    Address3 NULL string
-    
-    Order
-    -
-    OrderID PK int
-    CustomerID int FK >- Customer.CustomerID
-    TotalAmount money
-    OrderStatusID int FK >- os.OrderStatusID
-    
-    OrderLine as ol
-    ----
-    OrderLineID PK int
-    OrderID int FK >- Order.OrderID
-    ProductID int FK >- p.ProductID
-    Quantity int
-    
-    # Table documentation comment 1 (try the PDF/RTF export)
-    Product as p # Table documentation comment 2
-    ------------
-    ProductID PK int
-    # Field documentation comment 1
-    # Field documentation comment 2
-    Name varchar(200) UNIQUE # Field documentation comment 3
-    Price money
-    
-    OrderStatus as os
-    ----
-    OrderStatusID PK int
-    Name UNIQUE string -->
-
-    <!-- *****************************************************
-    dvd_rental database
-
-    CREATE TABLE category (    
-     category_id integer PRIMARY KEY, 
-     name varchar(50) NOT NULL,  
-     last_update timestamp  DEFAULT now() NOT NULL);
-    CREATE TABLE actor (    
+<!-- CREATE TABLE customer(
+     id INT PRIMARY KEY,
+ 	first_name VARCHAR(50) NOT NULL,
+ 	last_name VARCHAR(50),
+ 	dob DATE NOT NULL,
+ 	address VARCHAR(50),
+ 	 state_id int REFERENCES public.state.id,
+	 country_id int REFERENCES public.country.id
+ );
+CREATE TABLE actor (    
      actor_id integer PRIMARY KEY, 
      first_name character varying(45) NOT NULL,  
      last_name character varying(45) NOT NULL,    
@@ -73,15 +26,19 @@ CREATE TABLE film (
     replacement_cost numeric(5,2) DEFAULT 19.99 NOT NULL,
     rating mpaa_rating DEFAULT 'G',
     last_update timestamp  DEFAULT now() NOT NULL,
-    special_features ,
+    special_features varchar(50),
     fulltext tsvector NOT NULL
 );
 
 CREATE TABLE film_actor (
     actor_id smallint NOT NULL,
     film_id smallint NOT NULL,
+	PRIMARY KEY (actor_id, film_id),
     last_update timestamp DEFAULT now() NOT NULL
 );
+ALTER TABLE film_actor(
+ADD CONSTRAINT actor_id FOREIGN KEY (actor_id) REFERENCES actor(actor_id),
+)
 
 CREATE TABLE film_category (
     film_id smallint NOT NULL,
@@ -127,5 +84,23 @@ CREATE TABLE customer (
     active integer
 ); -->
 
-</body>
-</html>
+
+<!-- manipulating the data -->
+
+<!-- /*
+SELECT
+<column_list>
+    FROM <table_name>
+        */
+
+        -- SELECT actor_id, first_name, last_name, Last_update
+        -- FROM actor;
+        -- SELECT
+        -- actor_id AS Actor_number,
+        -- first_name AS Actor_name
+        -- FROM actor
+        -- WHERE actor_id<10 
+        --1,Select rows from the film table where the film_id is less than 4. SELECT * FROM film
+            WHERE film_id<4
+        --2,Select rows from the film table where the rating is PG. SELECT * FROM film WHERE
+            rating='PG' -->
