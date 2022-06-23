@@ -104,3 +104,19 @@ SELECT
             WHERE film_id<4
         --2,Select rows from the film table where the rating is PG. SELECT * FROM film WHERE
             rating='PG' -->
+
+            <!-- --3, Select rows from the film table where the rating is PG or G.
+            SELECT *
+            FROM film
+            WHERE rating='PG' OR rating= 'G'
+            
+            --4,Select rows from the actor table where the first name is Angela, Angelina, or Audrey using IN key word. PS: Google
+            it!
+            SELECT *
+            FROM actor
+            WHERE first_name IN ('Angela','Angelina','Audrey');
+            
+            --another method
+            SELECT *
+            FROM actor
+            WHERE first_name='Angela' OR first_name='Angelina' OR first_name='Audrey'; -->
